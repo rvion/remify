@@ -1,0 +1,16 @@
+version: '2.1'
+services:
+  bot:
+    volumes:
+      - /static:/static
+    image: rvion/remify-bot
+    command: bot $SLACK_TOKEN ./chrisify ./haarcascade_frontalface_alt.xml
+    environment: 
+      - SLACK_TOKEN
+  server:
+    volumes:
+      - /static:/static
+    image: rvion/remify-static-server
+    ports: 
+      - "80:8080"
+    
