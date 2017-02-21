@@ -14,5 +14,7 @@ RUN mv bot bin/bot
 RUN mv /go/src/github.com/zikes/chrisify/haarcascade_frontalface_alt.xml /go/bin/
 RUN cd bin
 RUN ls -la bin
+RUN mkdir /faces
+ADD faces /faces
 WORKDIR /go/bin
 CMD bot $SLACK_TOKEN ./chrisify ./haarcascade_frontalface_alt.xml
